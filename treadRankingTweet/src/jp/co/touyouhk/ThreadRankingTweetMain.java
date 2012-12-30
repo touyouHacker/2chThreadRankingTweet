@@ -154,16 +154,17 @@ public class ThreadRankingTweetMain {
 		if (argment.length < 1) {
 			System.out.println("★引数が足りません。");
 			System.out.println(" ");
-			System.out.println("java treadRankingTweet [引数1] [引数2] [引数3] [引数4] [引数5]");
+			System.out.println("java treadRankingTweet [引数1] [引数2] [引数3] [-h] [-f] [-i]");
 			System.out.println("引数1 必須、板のURLを指定");
 			System.out.println("引数2 準必須、[Default 30] 繰り返す時間の間隔を分で指定 (10分以上を推奨、あまり短いと2chからBANされる)");
 			System.out.println("引数3 準必須、[Default 3] ランキング数を出すスレの数 (1～3を推奨)");
-			System.out.println("引数4 オプション、ランキングのツイート文の前に入れたい文字列を入れる(～板スレッドランク)");
-			System.out.println("引数5 オプション、ランキングのツイート文の後に入れたい文字列を入れる(#2chとか#akibaとか)");
+			System.out.println("-h Headerオプション、ランキングのツイート文の前に入れたい文字列を入れる(～板スレッドランク)");
+			System.out.println("-f Footerオプション、ランキングのツイート文の後に入れたい文字列を入れる(#2chとか#akibaとか)");
+			System.out.println("-i initFileオプション、[Default twitterKey.ini] Twitterアクセスキーの設定ファイルを指定する");
 			System.out.println(" ");
 			System.out.println("例1, treadRankingTweet http://raicho.2ch.net/newsplus/");
 			System.out.println("例2, treadRankingTweet http://raicho.2ch.net/newsplus/ 20 3");
-			System.out.println("例3, treadRankingTweet http://raicho.2ch.net/newsplus/ 20 3 \"N速プラス板スレッドランキング\" \"#2ch\"");
+			System.out.println("例3, treadRankingTweet http://raicho.2ch.net/newsplus/ 20 3 -h \"N速プラス板スレッドランキング\" -f \"#2ch\"");
 			return false;
 		}
 		
@@ -186,11 +187,29 @@ public class ThreadRankingTweetMain {
 			e.printStackTrace();
 			return false;
 		}
-		if (argment.length >= 4)
-			tweetPreString = argment[3];
-		if (argment.length >= 5)
-			tweetAfterString = argment[4];
-
+		
+		
+		for(int i=3; i <= argment.length - 1 ; i++){
+			
+			if("-h".equals(argment[i])){
+				tweetPreString = argment[i+1];
+				i++;
+				continue;
+			}
+			
+			if("-f".equals(argment[i])){
+				tweetAfterString = argment[i+1];
+				i++;
+				continue;
+			}
+			
+			if("-i".equals(argment[i])){
+				TweetSimple.twitterKeyFile = argment[i+1];
+				i++;
+				continue;
+			}
+		}
+		
 		// TODO 異常検出
 		
 		return true;

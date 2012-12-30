@@ -11,7 +11,10 @@ import twitter4j.auth.AccessToken;
 
 public class TweetSimple {
 
-	private final static String twitterKeyFile = "twitterKey.ini";
+	/**
+	 * Twitterのアクセスキーファイル名
+	 */
+	public static String twitterKeyFile = "twitterKey.ini";
 
 	private static Twitter twitter = null;
 	private static String consumerKey = null;
