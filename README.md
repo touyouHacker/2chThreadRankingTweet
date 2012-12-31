@@ -4,7 +4,9 @@
 2channel Thread Ranking (2TRT)  
 #説明
 2chの特定の板のスレッド一覧を取得し勢いランキングを算出しツイートするボットになります。
+
 Twitterの開発用のアカウント（コンシューマーキー、シークレットトークン）が必要になります。
+
 詳しくはグーグル先生に聞いてください。
 
 #ビルド方法
@@ -29,7 +31,7 @@ accessTokenSecret
 コマンドラインで以下のように実行します
 
 ##例1
-java -jar 2TRTexe.jar http://hayabusa3.2ch.net/news/ 30 5 -h "スレ勢いランキング/ニュース速報" -f "#2ch"
+`java -jar 2TRTexe.jar http://hayabusa3.2ch.net/news/ 30 5 -h "スレ勢いランキング/ニュース速報" -f "#2ch"`
 
 -jar 2TRTexe.jar 以下が2TRTが認識できるオプションになります。
 
@@ -44,7 +46,7 @@ http://hayabusa3.2ch.net/news/ スレのURL
 -f "#2ch" →　ツイート文章の後方フッタ
 
 ##例2
-java -jar 2TRTexe.jar http://engawa.2ch.net/poverty/ 30 5 -h "スレ勢いランキング/ニュー速(嫌儲)板" -f #2ch -i twitterKey_poverty.ini
+`java -jar 2TRTexe.jar http://engawa.2ch.net/poverty/ 30 5 -h "スレ勢いランキング/ニュー速(嫌儲)板" -f #2ch -i twitterKey_poverty.ini`
 
 -i デフォルト名以外のTwitterの設定ファイルを指定
 
