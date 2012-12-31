@@ -1,7 +1,7 @@
 2chThreadRankingTweet
 =====================
 
-2channel Thread Ranking (2TRT)  
+2channel Thread Ranking Tweet(2TRT)  
 #説明
 2chの特定の板のスレッド一覧を取得し勢いランキングを算出しツイートするボットになります。
 
@@ -49,6 +49,8 @@ http://hayabusa3.2ch.net/news/ スレのURL
 `java -jar 2TRTexe.jar http://engawa.2ch.net/poverty/ 30 5 -h "スレ勢いランキング/ニュー速(嫌儲)板" -f #2ch -i twitterKey_poverty.ini`
 
 -i デフォルト名以外のTwitterの設定ファイルを指定
+
+----
 
 通常はWindowsならバッチファイル
 
